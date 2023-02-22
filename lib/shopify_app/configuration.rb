@@ -131,7 +131,7 @@ module ShopifyApp
     attr_reader :interval
     attr_reader :trial_days
     
-    def initialize(charge_name:, amount:, interval:, currency_code: "USD", trial_days: 0)
+    def initialize(charge_name:, amount:, interval:, currency_code: "USD", trial_days: 30)
       @charge_name = charge_name
       @amount = amount
       @currency_code = currency_code
