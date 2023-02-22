@@ -155,6 +155,7 @@ module ShopifyApp
           },
           returnUrl: return_url,
           test: !Rails.env.production?,
+          trialDays: ShopifyApp.configuration.billing.trial_days,
         },
       )
 
@@ -209,12 +210,14 @@ module ShopifyApp
         $lineItems: [AppSubscriptionLineItemInput!]!
         $returnUrl: URL!
         $test: Boolean
+        $trialDays: Int
       ) {
         appSubscriptionCreate(
           name: $name
           lineItems: $lineItems
           returnUrl: $returnUrl
           test: $test
+          trialDays: $trialDays
         ) {
           confirmationUrl
           userErrors {
